@@ -4,18 +4,23 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Signup from './pages/SignUp'
 import Login from './pages/Login';
+import ConfirmRegistration from './pages/ConfirmRegistration';
 
 function App() {
   const router = createBrowserRouter([
     {
-      path: '/signup',
+      path: "/signup",
       element: <Signup />
     },
     {
-      path: '/login',
+      path: "/login",
       element: <Login />
+    },
+    {
+      path: "/verify-register",
+      element: <ConfirmRegistration />
     }
-  ])
+  ]);
 
   return (
     <RouterProvider router={router}/>
