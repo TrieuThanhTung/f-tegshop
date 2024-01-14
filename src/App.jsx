@@ -5,16 +5,21 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Signup from './pages/SignUp'
 import Login from './pages/Login';
 import ConfirmRegistration from './pages/ConfirmRegistration';
+import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/signup",
-      element: <Signup />
+      element: <DefaultLayout>
+        <Signup />
+      </DefaultLayout>
     },
     {
       path: "/login",
-      element: <Login />
+      element: <DefaultLayout>
+        <Login />
+      </DefaultLayout>
     },
     {
       path: "/verify-register",
@@ -23,7 +28,7 @@ function App() {
   ]);
 
   return (
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   )
 }
 

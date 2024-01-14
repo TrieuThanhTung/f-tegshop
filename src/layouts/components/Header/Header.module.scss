@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 54px;
+  padding: 8px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  width: 241px;
+
+  .contact-support {
+    position: relative;
+    top: -6px
+  }
+}
