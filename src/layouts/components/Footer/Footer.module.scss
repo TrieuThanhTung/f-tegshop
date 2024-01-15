@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+  padding: 16px;
+  border-top: 1px solid #eef1f3;
+}
+
+.container-icon {
+  margin: 16px;
+  
+  .contact-icon {
+    margin: 8px;
+    padding: 12px;
+  }
+}
+
+.contact-email {
+  color: #747474
+}

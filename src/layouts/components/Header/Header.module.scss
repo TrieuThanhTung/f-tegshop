@@ -1,17 +1,37 @@
 .wrapper {
   display: flex;
   justify-content: space-between;
-  height: 54px;
-  padding: 8px;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #eef1f3;
+}
+
+.image {
+  width: 178px;
+
+  img {
+    float: left;
+  }
 }
 
 .menu {
   display: flex;
-  justify-content: space-between;
-  width: 241px;
+  justify-content: space-around;
+  width: 178px;
 
   .contact-support {
     position: relative;
-    top: -6px
+    top: -3px
   }
+}
+
+.menu-icon {
+  border-radius: 50%;
+  background-color: #eef1f3;
+  width: 56px;
+  padding: 8px;
+}
+
+.menu-icon:hover {
+  cursor: pointer;
 }

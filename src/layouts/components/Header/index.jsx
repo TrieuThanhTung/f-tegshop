@@ -15,26 +15,25 @@ const Header = () => {
 
   return (
     <header className={cx("wrapper")}>
-      <img src="https://demo.templatesjungle.com/foodmart/images/logo.png" alt="" />
+      <div className={cx("image")}>
+        <img src="src\assets\images\logo-tegshop1.png" alt="" height={40}/>
+      </div>
       <Search
         placeholder="Search"
         onSearch={onSearch}
         // loading
         style={{
-          width: 300,
+          width: 400
         }}
+        size="large"
       />
       <div className={cx("menu")}>
-        <p className={cx("contact-support")}>
-          For support: <br/>
-          0355529642
-        </p>
-        <div className="profile-icon">
-          <GoPerson size={24}/>
+        <div className={cx("menu-icon")}>
+          <GoPerson size={24} className="profile-icon"/>
         </div>
-        <div className="cart-icon">
-          <AiOutlineShoppingCart  size={24}/>
-        </div>
+        <span className={cx("menu-icon")}>
+          <AiOutlineShoppingCart className="cart-icon" size={24}/>
+        </span>
       </div>
     </header>
   )
