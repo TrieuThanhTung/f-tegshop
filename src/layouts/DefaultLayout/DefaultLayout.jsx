@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 // import React from 'react'
 import styles from "./DefaultLayout.module.scss"
-import classNames from "classnames";
+import classNames from "classnames/bind";
 import Header from "../components/Header"
 import Footer from "../components/Footer";
 
@@ -14,7 +14,10 @@ const DefaultLayout = ({ children }) => {
       <div className={cx("container")}>
         {children}
       </div>
-      <Footer />
+      <div className={cx("footer")}>
+        <Footer />
+      </div>
+     
     </div>
   )
 }
