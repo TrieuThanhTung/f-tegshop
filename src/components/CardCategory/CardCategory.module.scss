@@ -1,8 +1,8 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  padding: 40px 20px;
-  margin: 20px 30px 20px 0;
+  padding: 20px 10px;
+  margin: 20px 48px 20px 0;
   border-radius: 16px;
   box-shadow: 0px 5px 22px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
@@ -10,15 +10,15 @@
   text-align: center;
 
   .image {
-    width: 50px;
+    width: 20px;
     margin: auto;
   }
 
   .title {
     display: block;
-    width: 190px;
+    width: 150px;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 27px;
     letter-spacing: 0.02em;
     text-transform: capitalize;
@@ -31,4 +31,5 @@
 .wrapper:hover {
   transform: translate3d(0,-10px,0);
   box-shadow: 0px 21px 44px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-border);
 }
