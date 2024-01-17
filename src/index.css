@@ -1,3 +1,5 @@
 body {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: Open Sans, Nunito, Arial, sans-serif;
+  --body-font: "Open Sans", sans-serif;
+  --heading-font: "Nunito", sans-serif;
 }

@@ -1,7 +1,7 @@
 // import React from 'react'
 import styles from "./Header.module.scss";
 import classNames from "classnames/bind";
-import { Input } from 'antd';
+import { Input, Button } from 'antd';
 import { GoPerson } from "react-icons/go";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
@@ -28,12 +28,16 @@ const Header = () => {
         size="large"
       />
       <div className={cx("menu")}>
-        <div className={cx("menu-icon")}>
-          <GoPerson size={24} className="profile-icon"/>
-        </div>
-        <span className={cx("menu-icon")}>
-          <AiOutlineShoppingCart className="cart-icon" size={24}/>
-        </span>
+        <Button size="large" 
+        color="grey" 
+        shape="circle" 
+        icon={<GoPerson size={24} className="profile-icon"/>} 
+        />
+        <Button size="large"
+         color="grey" 
+         shape="circle" 
+         icon={<AiOutlineShoppingCart className="cart-icon" size={24}/>} 
+         />
       </div>
     </header>
   )

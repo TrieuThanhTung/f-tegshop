@@ -5,10 +5,17 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Signup from './pages/SignUp'
 import Login from './pages/Login';
 import ConfirmRegistration from './pages/ConfirmRegistration';
+import Home from './pages/Home';
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
 
 function App() {
   const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <DefaultLayout>
+        <Home />
+      </DefaultLayout>
+    },
     {
       path: "/signup",
       element: <DefaultLayout>
