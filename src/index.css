@@ -1,6 +1,9 @@
 body {
   font-family: Open Sans, Nunito, Arial, sans-serif;
+  overflow: auto;
+
+
   --body-font: "Open Sans", sans-serif;
   --heading-font: "Nunito", sans-serif;
-  /* background-color: #f9f9f9; */
+
 }

@@ -45,7 +45,7 @@ const CardCategory = () => {
             <h3 className={cx("title")}>
               {category.title}
             </h3>
-        </Link>
+          </Link>
         )
       }
       )}

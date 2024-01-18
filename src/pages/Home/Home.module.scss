@@ -1,3 +1,15 @@
+.wrapper {
+}
+
 .category-content {
   display: flex;
+  width: max-content;
+}
+
+.trending {
+}
+
+.product {
+  display: flex;
+  // flex-wrap: wrap;
 }
