@@ -1,6 +1,6 @@
 body {
   font-family: Open Sans, Nunito, Arial, sans-serif;
-  overflow: auto;
+  overflow-x: auto;
 
 
   --body-font: "Open Sans", sans-serif;

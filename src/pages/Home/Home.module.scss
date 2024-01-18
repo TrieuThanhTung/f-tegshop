@@ -1,4 +1,5 @@
 .wrapper {
+  overflow: hidden;
 }
 
 .category-content {
@@ -7,9 +8,14 @@
 }
 
 .trending {
+  overflow: auto;
 }
 
 .product {
   display: flex;
-  // flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.trending::-webkit-scrollbar {
+  // display: none;
 }

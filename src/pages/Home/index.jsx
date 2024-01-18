@@ -5,6 +5,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa6"
 
 import CardCategory from "../../components/CardCategory";
 import CardProduct from "../../components/CardProduct";
+// import { useRef, useState } from "react";
 // import images from "../../assets/images"
 
 const cx = classNames.bind(styles);
@@ -60,12 +61,69 @@ const Home = () => {
             <div className="d-flex align-items-center mb-1">
               <div className="swiper-buttons m-lg-1">
                 <Button  color="grey" disabled icon={<FaAngleLeft size={16}/>} style={{margin:"8px"}} />
-                <Button  color="grey" icon={<FaAngleRight size={16}/>} />
+                <Button color="grey" icon={<FaAngleRight size={16}/>} />
               </div>
             </div>
           </div>
         </div>
         <div className={cx("product")}>
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+        </div>
+      </section>
+      <section className={cx("best-selling py-3")}>
+        <div className="col-md-12">
+          <div className="section-header d-flex flex-wrap justify-content-between mb-2">
+            <h2 className="section-title fs-4" style={{fontWeight: 600, lineHeight: "52px"}}>Best selling products</h2>
+
+            <div className="d-flex align-items-center mb-1">
+              <div className="swiper-buttons m-lg-1">
+                <Button  color="grey" disabled icon={<FaAngleLeft size={16}/>} style={{margin:"8px"}} />
+                <Button color="grey" icon={<FaAngleRight size={16}/>} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={cx("product")}>
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+        </div>
+      </section>
+      <section className={cx("just-arrived py-3")}>
+        <div className="col-md-12">
+          <div className="section-header d-flex flex-wrap justify-content-between mb-2">
+            <h2 className="section-title fs-4" style={{fontWeight: 600, lineHeight: "52px"}}>Just arrived</h2>
+
+            <div className="d-flex align-items-center mb-1">
+              <div className="swiper-buttons m-lg-1">
+                <Button  color="grey" disabled icon={<FaAngleLeft size={16}/>} style={{margin:"8px"}} />
+                <Button color="grey" icon={<FaAngleRight size={16}/>} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={cx("product")}>
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
+          <CardProduct />
           <CardProduct />
           <CardProduct />
           <CardProduct />
