@@ -6,6 +6,8 @@ import Signup from './pages/SignUp'
 import Login from './pages/Login';
 import ConfirmRegistration from './pages/ConfirmRegistration';
 import Home from './pages/Home';
+import Product from './pages/Product';
+
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
 
 function App() {
@@ -14,6 +16,12 @@ function App() {
       path: "/",
       element: <DefaultLayout>
         <Home />
+      </DefaultLayout>
+    },
+    {
+      path: "/product",
+      element: <DefaultLayout>
+        <Product />
       </DefaultLayout>
     },
     {

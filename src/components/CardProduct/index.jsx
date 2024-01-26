@@ -52,7 +52,7 @@ const CardProduct = () => {
           </button>
           <input type="text" name="quantity" value={quantity} className={cx("input-number")}/>
           <button className={cx("input-btn")} onClick={handlePlusInputQuantity}>
-          <FaPlus className={cx("star")} size={10}/>
+            <FaPlus className={cx("star")} size={10}/>
           </button>
         </div>
         <span className={cx("add-card")}>
