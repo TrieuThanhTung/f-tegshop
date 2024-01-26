@@ -1,4 +1,10 @@
-# React + Vite
+# Frontend: TEGSHOP
+- Project use technologies:
+  - React + Vite
+  - Sass, Bootstrap, Ant design
+  - React router dom, axios
+
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
