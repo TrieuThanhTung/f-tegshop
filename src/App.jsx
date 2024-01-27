@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Product from './pages/Product';
 
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
+import Category from './pages/Category';
 
 function App() {
   const router = createBrowserRouter([
@@ -22,6 +23,12 @@ function App() {
       path: "/product",
       element: <DefaultLayout>
         <Product />
+      </DefaultLayout>
+    },
+    {
+      path: "/category",
+      element: <DefaultLayout>
+        <Category />
       </DefaultLayout>
     },
     {
