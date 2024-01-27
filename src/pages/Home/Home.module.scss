@@ -1,0 +1,21 @@
+.wrapper {
+  overflow: hidden;
+}
+
+.category-content {
+  display: flex;
+  width: max-content;
+}
+
+.trending {
+  overflow: auto;
+}
+
+.product {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.trending::-webkit-scrollbar {
+  // display: none;
+}

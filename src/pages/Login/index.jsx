@@ -1,11 +1,11 @@
-import styles from "./Login.module.scss"
-import classNames from "classnames/bind"
+import styles from "./Login.module.scss";
+import classNames from "classnames/bind";
 import { Input } from 'antd';
 import { useState } from "react";
-// import { Toast } from "react-toastify/dist/components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axiosInstance from "../../config/axios";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -68,12 +68,12 @@ const Login = () => {
         <form>
           {/* <!-- Email input --> */}
           <div data-mdb-input-init className="form-outline mb-4">
-            <Input onChange={handleChangeLoginData} style={{ height: "40px", fontSize: "16px", width: "400px" }} name="email" placeholder="Email" />
+            <Input type="email" onChange={handleChangeLoginData} value={loginData.email} style={{ height: "40px", fontSize: "16px", width: "400px" }} name="email" placeholder="Email" />
           </div>
   
           {/* <!-- Password input --> */}
           <div data-mdb-input-init className="form-outline mb-4">
-            <Input.Password onChange={handleChangeLoginData} style={{ height: "40px", fontSize: "16px", width: "400px" }} name="password" placeholder="Password" />
+            <Input.Password onChange={handleChangeLoginData} value={loginData.password} style={{ height: "40px", fontSize: "16px", width: "400px" }} name="password" placeholder="Password" />
           </div>
   
           {/* <!-- 2 column grid layout for inline styling --> */}
@@ -97,7 +97,7 @@ const Login = () => {
   
           {/* <!-- Register buttons --> */}
           <div className="text-center">
-            <p>Not a member? <a href="#!">Register</a></p>
+            <p>Not a member? <Link to="/signup">Register</Link></p>
             <p>or sign up with:</p>
             <button data-mdb-ripple-init type="button" className="btn btn-secondary btn-floating mx-1">
               <i className="fab fa-facebook-f"></i>

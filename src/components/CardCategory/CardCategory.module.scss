@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  margin: 20px 48px 20px 0;
+  border-radius: 16px;
+  box-shadow: 0px 5px 22px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
+  border: 1px solid #FBFBFB;
+  text-align: center;
+
+  .image {
+    width: 20px;
+    margin: auto;
+  }
+
+  .title {
+    display: block;
+    width: 150px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #222222;
+    margin-top: 20px;
+  }
+
+}
+
+.wrapper:hover {
+  transform: translate3d(0,-10px,0);
+  box-shadow: 0px 21px 44px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-border);
+}
