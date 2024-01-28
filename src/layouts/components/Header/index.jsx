@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import { Input, Button } from 'antd';
 import { GoPerson } from "react-icons/go";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -16,7 +17,9 @@ const Header = () => {
   return (
     <header className={cx("wrapper")}>
       <div className={cx("image")}>
-        <img src="src\assets\images\logo-tegshop1.png" alt="" height={40}/>
+        <Link to={"/"}>
+          <img src="src\assets\images\logo-tegshop1.png" alt="" height={40} />
+        </Link>
       </div>
       <Search
         placeholder="Search"
@@ -28,16 +31,20 @@ const Header = () => {
         size="large"
       />
       <div className={cx("menu")}>
-        <Button size="large" 
-        color="grey" 
-        shape="circle" 
-        icon={<GoPerson size={24} className="profile-icon"/>} 
-        />
-        <Button size="large"
-         color="grey" 
-         shape="circle" 
-         icon={<AiOutlineShoppingCart className="cart-icon" size={24}/>} 
-         />
+        <Link to={"/"}>
+          <Button size="large"
+            color="grey"
+            shape="circle"
+            icon={<GoPerson size={24} className="profile-icon" />}
+          />
+        </Link>
+        <Link to={"/cart"}>
+          <Button size="large"
+            color="grey"
+            shape="circle"
+            icon={<AiOutlineShoppingCart className="cart-icon" size={24} />}
+          />
+        </Link>
       </div>
     </header>
   )

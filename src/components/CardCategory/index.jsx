@@ -40,7 +40,7 @@ const CardCategory = () => {
     <>
       {categoryList?.map((category, index) => {
         return (
-          <Link key={index} to="" className={cx("wrapper")}>
+          <Link key={index} to="/category" className={cx("wrapper")}>
             <img className={cx("image")} src={category.image} alt="" />
             <h3 className={cx("title")}>
               {category.title}

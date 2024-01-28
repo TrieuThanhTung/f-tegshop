@@ -27,7 +27,7 @@ const Product = () => {
     setQuantity(tq);
   }
   const [options, setOptions] = useState("description");
-  
+
   return (
     <div className={cx("wrapper")}>
       <div className={cx("product-main")}>
@@ -71,19 +71,19 @@ const Product = () => {
       <div className={cx("product-info")}>
         <div className={cx("product-options")}>
           <button onClick={() => setOptions("description")}
-            style={{backgroundColor: options === "description" ? "#f1f1f1" : "#fff"}}
+            style={{ backgroundColor: options === "description" ? "#f1f1f1" : "#fff" }}
           >
             Description
           </button>
           <button onClick={() => setOptions("feedback")}
-            style={{backgroundColor: options === "feedback" ? "#f1f1f1" : "#fff"}}
+            style={{ backgroundColor: options === "feedback" ? "#f1f1f1" : "#fff" }}
           >
             Customer feedbacks
           </button>
         </div>
         <div className={cx("product-content")}>
-          <div className={cx("product-description")} 
-          style={{display: options === "description" ? "block" : "none"}}
+          <div className={cx("product-description")}
+            style={{ display: options === "description" ? "block" : "none" }}
           >
             <h4>Product Description</h4>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus.
@@ -92,8 +92,8 @@ const Product = () => {
             Aliquam porttitor mauris sit amet orci.
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus.
           </div>
-          <div className={cx("product-feedback")} 
-          style={{display: options === "feedback" ? "block" : "none"}}
+          <div className={cx("product-feedback")}
+            style={{ display: options === "feedback" ? "block" : "none" }}
           >
             {"No feedback"}
           </div>
