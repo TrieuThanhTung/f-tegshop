@@ -40,6 +40,9 @@ const Login = () => {
       console.log("login", response);
 
       if(response.message === "Login successfully") {
+        await localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken))
+        await localStorage.setItem('refreshToken', JSON.stringify(response.data.refreshToken))
+
         toast(response.message, {
           type: "success"
         });

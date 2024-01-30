@@ -38,6 +38,8 @@ const Home = () => {
   //   },
   // ];
 
+
+
   return (
     <div className={cx("wrapper")}>
       <div className="banner">

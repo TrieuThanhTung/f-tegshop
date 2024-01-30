@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import styles from "./CardProduct.module.scss";
 import classNames from "classnames/bind";
@@ -5,11 +6,14 @@ import { FaStar, FaMinus, FaPlus } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useState } from "react";
 
-
 const cx = classNames.bind(styles);
 
-const CardProduct = () => {
+const CardProduct = ({image, title, proQuantity, price}) => {
   const [quantity, setQuantity] = useState(0);
+  const [productPrice, setProdutPrice] = useState(
+    new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price || 20000000)
+    );
+
   const handleMinusInputQuantity = (event) => {
     event.preventDefault();
     let tq = quantity - 1;
@@ -30,21 +34,21 @@ const CardProduct = () => {
   return (
     <div className={cx("wrapper")}>
       <figure >
-        <Link to={"/login"} title={"title - product"}>
-          <img src="https://laptopworld.vn/media/product/16173_ux3405ma_pp151w_thumber.jpg" alt="" />
+        <Link to={"/product"} title={"title - product"}>
+          <img src={image || "src/assets/images/laptop_default.jpg"} alt="" />
         </Link>
       </figure>
       <h3 className={cx("title-product")}>
-        <Link to={"/login"} className={cx("text")}>{"Dell Vostro 5630 V5630-i5U165W11GRU"}</Link>
+        <Link to={"/product"} className={cx("text")}>{title || "NAME PRODUCT"}</Link>
       </h3>
       <div className={cx("quantity-rating")}>
-        <span className={cx("quantity")}>10 unit</span>
+        <span className={cx("quantity")}>{proQuantity || 10} unit</span>
         <span className={cx("rating")}>
           <FaStar className={cx("star")} size={16} />
           {"4.5"}
         </span>
       </div>
-      <span className={cx("price")}>{"20.000.000"}</span>
+      <span className={cx("price")}>{productPrice}</span>
       <div className={cx("add-to-cart")}>
         <div className={cx("input-quantity")}>
           <button className={cx("input-btn")} onClick={handleMinusInputQuantity}>

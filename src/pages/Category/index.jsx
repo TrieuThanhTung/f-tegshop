@@ -3,11 +3,27 @@ import styles from "./Category.module.scss"
 import classNames from "classnames/bind";
 import { Link } from "react-router-dom";
 
+import ProductApi from "../../api/ProductApi";
+import { useEffect, useState } from "react";
+
 
 const cx = classNames.bind(styles);
 
 const Category = () => {
+  const [listProducts, setListProducts] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await ProductApi.getAllProduct();
+        setListProducts(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
 
+    fetchData();
+
+  }, []); 
   return (
     <div className={cx("wrapper")}>
       <div className={cx("top-category-page")}>
@@ -20,26 +36,13 @@ const Category = () => {
         </select>
       </div>
       <div className={cx("list-product")}>
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
+        { listProducts.map((product, index) => 
+          <CardProduct key={index} image={product.images[0]} 
+            title={product.productName}
+            proQuantity={product.quantity}
+            price={product.price}
+          />
+        )}
       </div>
       <div className={cx("bottom-category-page")}>
         <div className={cx("paging")}>
