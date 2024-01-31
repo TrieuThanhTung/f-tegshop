@@ -1,13 +1,18 @@
-import { useState } from "react";
+/* eslint-disable no-unused-vars */
+import { useEffect, useState } from "react";
 import styles from "./Product.module.scss"
 import classNames from "classnames/bind";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+import ProductApi from "../../api/ProductApi";
 
 const cx = classNames.bind(styles);
 
 const Product = () => {
+  const params = useParams();
 
   const [quantity, setQuantity] = useState(0);
   const handleMinusInputQuantity = (event) => {
@@ -26,30 +31,49 @@ const Product = () => {
     }
     setQuantity(tq);
   }
+
   const [options, setOptions] = useState("description");
+
+
+  const [product, setProduct] = useState({
+    productName: 'productname',
+    price: 20000000,
+    description: ['des1', 'des2'],
+    category: 'CATEGORY',
+    manufacturer: 'DELL',
+    quantity: 10,
+    images: ['src/assets/images/laptop_default.jpg']
+  });
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await ProductApi.getProductById(params.id);
+      console.log(response.data);
+      setProduct(response.data);
+    }
+
+    fetchData();
+  }, [params.id])
 
   return (
     <div className={cx("wrapper")}>
       <div className={cx("product-main")}>
         <div className={cx("product-image")}>
-          <img src="https://demo.templatesjungle.com/foodmart/images/product-large-5.jpg" alt="" />
+          <img src={product?.images?.[0] || "src/assets/images/laptop_default.jpg"} alt="" />
         </div>
         <div className={cx("product-content")}>
-          <h3 className={cx("product-title")}>Title product</h3>
-          <span className={cx("product-price")}> 30.000.000</span>
-          <p className={cx("product-description")}>Justo, cum feugiat imperdiet
-            nulla molestie ac vulputate scelerisque amet. Bibendum adipiscing platea blandit sit sed
-            quam semper rhoncus. Diam ultrices maecenas consequat eu tortor orci, cras lectus mauris,
-            cras egestas quam venenatis neque.
-          </p>
+          <h3 className={cx("product-title")}>{product?.productName || "Title product"}</h3>
+          <span className={cx("product-price")}> {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(product?.price)}</span>
+          <div className={cx("product-description")}>
+
+          </div>
           <span className={cx("product-category")}>Categroy:
-            <Link to={"/apple"} className={cx("link")}>
-              {"Apple"}
+            <Link to={"/category"} className={cx("link")}>
+              {product?.category || "Apple"}
             </Link>
           </span>
-          <span className={cx("product-manufacturer")}>Manufacturer: {"Apple"}</span>
+          <span className={cx("product-manufacturer")}>Manufacturer: {product?.manufacturer || "Apple"}</span>
           <span className={cx("product-in-stock")}>
-            <i> {2} in stock </i>
+            <i> {product?.quantity} in stock </i>
           </span>
           <div className={cx("product-in-stock")}>
             <div className={cx("input-quantity")}>
@@ -86,11 +110,13 @@ const Product = () => {
             style={{ display: options === "description" ? "block" : "none" }}
           >
             <h4>Product Description</h4>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus.
-            Donec nec justo eget felis facilisis fermentum.
-            Suspendisse urna viverra non, semper suscipit pede.
-            Aliquam porttitor mauris sit amet orci.
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus.
+            {product?.description.map((text, index) => {
+              return (
+                <p key={index}>
+                  {text}
+                </p>
+              )
+            })}
           </div>
           <div className={cx("product-feedback")}
             style={{ display: options === "feedback" ? "block" : "none" }}

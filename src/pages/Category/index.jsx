@@ -37,7 +37,9 @@ const Category = () => {
       </div>
       <div className={cx("list-product")}>
         { listProducts.map((product, index) => 
-          <CardProduct key={index} image={product.images[0]} 
+          <CardProduct key={index} 
+            id={product.productId}
+            image={product.images[0]} 
             title={product.productName}
             proQuantity={product.quantity}
             price={product.price}

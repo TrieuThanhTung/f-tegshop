@@ -21,7 +21,7 @@ function App() {
       </DefaultLayout>
     },
     {
-      path: "/product",
+      path: "/product/:id",
       element: <DefaultLayout>
         <Product />
       </DefaultLayout>

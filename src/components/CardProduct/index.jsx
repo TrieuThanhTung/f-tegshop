@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 
 import { Link } from "react-router-dom";
 import styles from "./CardProduct.module.scss";
@@ -8,7 +10,7 @@ import { useState } from "react";
 
 const cx = classNames.bind(styles);
 
-const CardProduct = ({image, title, proQuantity, price}) => {
+const CardProduct = ({id, image, title, proQuantity, price}) => {
   const [quantity, setQuantity] = useState(0);
   const [productPrice, setProdutPrice] = useState(
     new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price || 20000000)
@@ -34,18 +36,18 @@ const CardProduct = ({image, title, proQuantity, price}) => {
   return (
     <div className={cx("wrapper")}>
       <figure >
-        <Link to={"/product"} title={"title - product"}>
+        <Link to={`/product/${id}`} title={"title - product"}>
           <img src={image || "src/assets/images/laptop_default.jpg"} alt="" />
         </Link>
       </figure>
       <h3 className={cx("title-product")}>
-        <Link to={"/product"} className={cx("text")}>{title || "NAME PRODUCT"}</Link>
+        <Link to={`/product/${id}`} className={cx("text")}>{title || "NAME PRODUCT"}</Link>
       </h3>
       <div className={cx("quantity-rating")}>
         <span className={cx("quantity")}>{proQuantity || 10} unit</span>
         <span className={cx("rating")}>
           <FaStar className={cx("star")} size={16} />
-          {"4.5"}
+          {(Math.random() + 4).toFixed(1)}
         </span>
       </div>
       <span className={cx("price")}>{productPrice}</span>
