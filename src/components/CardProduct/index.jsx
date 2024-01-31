@@ -36,12 +36,12 @@ const CardProduct = ({id, image, title, proQuantity, price}) => {
   return (
     <div className={cx("wrapper")}>
       <figure >
-        <Link to={`/product/${id}`} title={"title - product"}>
+        <Link to={`/product?id=${id}`} title={"title - product"}>
           <img src={image || "src/assets/images/laptop_default.jpg"} alt="" />
         </Link>
       </figure>
       <h3 className={cx("title-product")}>
-        <Link to={`/product/${id}`} className={cx("text")}>{title || "NAME PRODUCT"}</Link>
+        <Link to={`/product?id=${id}`} className={cx("text")}>{title || "NAME PRODUCT"}</Link>
       </h3>
       <div className={cx("quantity-rating")}>
         <span className={cx("quantity")}>{proQuantity || 10} unit</span>

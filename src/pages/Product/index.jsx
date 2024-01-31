@@ -5,14 +5,14 @@ import classNames from "classnames/bind";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 import ProductApi from "../../api/ProductApi";
 
 const cx = classNames.bind(styles);
 
 const Product = () => {
-  const params = useParams();
+  const [searchParams] = useSearchParams();
 
   const [quantity, setQuantity] = useState(0);
   const handleMinusInputQuantity = (event) => {
@@ -46,13 +46,13 @@ const Product = () => {
   });
   useEffect(() => {
     const fetchData = async () => {
-      const response = await ProductApi.getProductById(params.id);
+      const response = await ProductApi.getProductById(searchParams.get('id'));
       console.log(response.data);
       setProduct(response.data);
     }
 
     fetchData();
-  }, [params.id])
+  }, [searchParams])
 
   return (
     <div className={cx("wrapper")}>
