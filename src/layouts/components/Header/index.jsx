@@ -6,6 +6,7 @@ import { GoPerson } from "react-icons/go";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
+
 const cx = classNames.bind(styles);
 
 const { Search } = Input;
@@ -18,7 +19,7 @@ const Header = () => {
     <header className={cx("wrapper")}>
       <div className={cx("image")}>
         <Link to={"/"}>
-          <img src="src\assets\images\logo-tegshop1.png" alt="" height={40} />
+          <img src="src\assets\images\logo-tegshop1.png" alt="LOGO" height={40} />
         </Link>
       </div>
       <Search

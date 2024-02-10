@@ -26,6 +26,7 @@ const Category = () => {
   ]
   const [optionValue, setOptionValue] = useState(options[0]);
   //
+  const [isNext, setIsNext] = useState(true);
   const [listProducts, setListProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -42,6 +43,7 @@ const Category = () => {
           response = await ProductApi.getProductByCategoryWithSortAndPage(params.category.toLocaleUpperCase(),'date-new', searchParams.get('page') || 1);
         }
         setListProducts(response.data);
+        setIsNext(response?.data.length === 20)
       } catch (error) {
         console.log(error);
       }
@@ -94,7 +96,7 @@ const Category = () => {
           {parseInt(searchParams.get('page')) !== 1 ? <Link className={cx("paging-number")}
             to={`.?sort=${searchParams.get('sort') || 'date-new'}&page=${parseInt(searchParams.get('page')) - 1}`}>Pre</Link>
             : <span className={cx("paging-number")}>Pre</span>}
-          {parseInt(searchParams.get('page')) !== 3 ? <Link className={cx("paging-number")}
+          {isNext ? <Link className={cx("paging-number")}
             to={`.?sort=${searchParams.get('sort') || 'date-new'}&page=${parseInt(searchParams.get('page')) + 1}`}>Next</Link>
             : <span className={cx("paging-number")}>Next</span>}
         </div>

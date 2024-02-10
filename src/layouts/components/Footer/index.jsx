@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className={cx("wrapper")}>
       <div>
         <div className={cx("image")}>
-          <img src="src\assets\images\logo-tegshop1.png" alt="" height={40} />
+          <img src="src\assets\images\logo-tegshop1.png" alt="LOGO" height={40} />
         </div>
         <p className={cx("contact-email")}>
           Contact: tung.ttrieu@gmail.com
