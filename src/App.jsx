@@ -27,7 +27,7 @@ function App() {
       </DefaultLayout>
     },
     {
-      path: "/category",
+      path: "/category/:category",
       element: <DefaultLayout>
         <Category />
       </DefaultLayout>

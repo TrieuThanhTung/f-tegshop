@@ -67,7 +67,7 @@ const Product = () => {
 
           </div>
           <span className={cx("product-category")}>Categroy:
-            <Link to={"/category"} className={cx("link")}>
+            <Link to={`/category/${product.category}`} className={cx("link")}>
               {product?.category || "Apple"}
             </Link>
           </span>

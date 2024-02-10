@@ -12,27 +12,33 @@ const CardCategory = () => {
   const categoryList = [
     {
       title: "Office",
-      image: images.categoryOffice
+      image: images.categoryOffice,
+      params: 'office'
     },
     {
       title: "Games & Graphics",
-      image: images.categoryGames
+      image: images.categoryGames,
+      params: "games"
     },
     {
       title: "Apple",
-      image: images.categoryApple
+      image: images.categoryApple,
+      params: "apple"
     },
     {
       title: "PC",
-      image: images.categoryPC
+      image: images.categoryPC,
+      params: "pc"
     },
     {
       title: "Monitor",
-      image: images.categoryMonitor
+      image: images.categoryMonitor,
+      params: "monitor"
     },
     {
-      title: "Gears",
-      image: images.categoryGear
+      title: "Gear",
+      image: images.categoryGear,
+      params: "gear"
     },
   ];
 
@@ -40,7 +46,7 @@ const CardCategory = () => {
     <>
       {categoryList?.map((category, index) => {
         return (
-          <Link key={index} to="/category" className={cx("wrapper")}>
+          <Link key={index} to={`/category/${category.params}?page=1`}className={cx("wrapper")}>
             <img className={cx("image")} src={category.image} alt="" />
             <h3 className={cx("title")}>
               {category.title}

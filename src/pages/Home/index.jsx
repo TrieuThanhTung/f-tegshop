@@ -57,7 +57,8 @@ const Home = () => {
         </div>
         <div className={cx("product")}>
           {listProducts.map((product, index) => 
-            <CardProduct key={index} 
+            <CardProduct key={index}
+            id={product.productId}
             image={product.images[0]} 
             title={product.productName}
             proQuantity={product.quantity}
@@ -81,6 +82,7 @@ const Home = () => {
         <div className={cx("product")}>
         {listProducts.map((product, index) => 
             <CardProduct key={index} 
+            id={product.productId}
             image={product.images[0]} 
             title={product.productName}
             proQuantity={product.quantity}

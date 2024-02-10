@@ -17,6 +17,20 @@ class ProductApi {
     return await axiosInstance.get(url);
   }
 
+  getProductByCategory = async (category) => {
+    const url = `/api/products/${category}`;
+    return await axiosInstance.get(url);
+  }
+
+  getProductByCategoryWithSort = async (category, sort) => {
+    const url = `/api/products/${category}?sort=${sort}`;
+    return await axiosInstance.get(url);
+  }
+
+  getProductByCategoryWithSortAndPage = async (category, sort, page) => {
+    const url = `/api/products/${category}?sort=${sort}&page=${page}`;
+    return await axiosInstance.get(url);
+  }
 }
 
 export default new ProductApi();
