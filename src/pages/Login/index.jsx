@@ -5,11 +5,13 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axiosInstance from "../../config/axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [isRememberMe, setRememberMe] = useState(false);
 
   const [loginData, setLoginData] = useState({
@@ -39,13 +41,17 @@ const Login = () => {
       const response = await axiosInstance.post("/api/auth/login", formData);
       console.log("login", response);
 
-      if(response.message === "Login successfully") {
+      if (response.message === "Login successfully") {
         await localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken))
         await localStorage.setItem('refreshToken', JSON.stringify(response.data.refreshToken))
 
         toast(response.message, {
-          type: "success"
+          type: "success",
         });
+
+        setTimeout(() => {
+          navigate('/')
+        }, 2000)
       } else {
         toast(response.message, {
           type: "error"
@@ -61,43 +67,43 @@ const Login = () => {
 
   return (
     <>
-      <ToastContainer 
+      <ToastContainer
         position="top-center"
-        autoClose={2000}
+        autoClose={1000}
       />
       <div className={cx("wrapper")}>
-  
+
         <h2 className={cx("header fs-1 text-primary mb-6")}>Log in</h2>
         <form>
           {/* <!-- Email input --> */}
           <div data-mdb-input-init className="form-outline mb-4">
             <Input type="email" onChange={handleChangeLoginData} value={loginData.email} style={{ height: "40px", fontSize: "16px", width: "400px" }} name="email" placeholder="Email" />
           </div>
-  
+
           {/* <!-- Password input --> */}
           <div data-mdb-input-init className="form-outline mb-4">
             <Input.Password onChange={handleChangeLoginData} value={loginData.password} style={{ height: "40px", fontSize: "16px", width: "400px" }} name="password" placeholder="Password" />
           </div>
-  
+
           {/* <!-- 2 column grid layout for inline styling --> */}
           <div className="row mb-4">
             <div className="col d-flex justify-content-center">
               {/* <!-- Checkbox --> */}
               <div className="form-check">
-                <input className="form-check-input" onChange={() => setRememberMe(!isRememberMe)} type="checkbox" value="" id="form2Example34" checked = {isRememberMe} />
+                <input className="form-check-input" onChange={() => setRememberMe(!isRememberMe)} type="checkbox" value="" id="form2Example34" checked={isRememberMe} />
                 <label className="form-check-label"> Remember me </label>
               </div>
             </div>
-  
+
             <div className="col">
               {/* <!-- Simple link --> */}
               <a href="#!">Forgot password?</a>
             </div>
           </div>
-  
+
           {/* <!-- Submit button --> */}
           <button onClick={handleSubmitLogin} data-mdb-ripple-init type="button" className="btn btn-primary btn-block mb-4">Sign in</button>
-  
+
           {/* <!-- Register buttons --> */}
           <div className="text-center">
             <p>Not a member? <Link to="/signup">Register</Link></p>
@@ -105,15 +111,15 @@ const Login = () => {
             <button data-mdb-ripple-init type="button" className="btn btn-secondary btn-floating mx-1">
               <i className="fab fa-facebook-f"></i>
             </button>
-  
+
             <button data-mdb-ripple-init type="button" className="btn btn-secondary btn-floating mx-1">
               <i className="fab fa-google"></i>
             </button>
-  
+
             <button data-mdb-ripple-init type="button" className="btn btn-secondary btn-floating mx-1">
               <i className="fab fa-twitter"></i>
             </button>
-  
+
             <button data-mdb-ripple-init type="button" className="btn btn-secondary btn-floating mx-1">
               <i className="fab fa-github"></i>
             </button>

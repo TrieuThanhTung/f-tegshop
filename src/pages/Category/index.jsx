@@ -66,12 +66,6 @@ const Category = () => {
     }
   }
 
-  const handleNextPage = (event) => {
-    setListProducts([]);
-    // setPage(page+1);
-    // return navigate(`?sort=${searchParams.get('sort')}&page=${page+1}`);
-  }
-
   return (
     <div className={cx("wrapper")}>
       <div className={cx("top-category-page")}>
