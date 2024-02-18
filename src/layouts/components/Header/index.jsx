@@ -32,7 +32,7 @@ const Header = () => {
         size="large"
       />
       <div className={cx("menu")}>
-        <Link to={"/"}>
+        <Link to={"/profile"}>
           <Button size="large"
             color="grey"
             shape="circle"

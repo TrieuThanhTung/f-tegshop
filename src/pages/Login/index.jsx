@@ -7,10 +7,13 @@ import "react-toastify/dist/ReactToastify.css";
 import axiosInstance from "../../config/axios";
 import { Link, useNavigate } from "react-router-dom";
 
+import { useAuth } from "../../hooks/AuthContext";
+
 const cx = classNames.bind(styles);
 
 const Login = () => {
   const navigate = useNavigate();
+  const {handleLogin} = useAuth();
 
   const [isRememberMe, setRememberMe] = useState(false);
 
@@ -42,8 +45,9 @@ const Login = () => {
       console.log("login", response);
 
       if (response.message === "Login successfully") {
-        await localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken))
-        await localStorage.setItem('refreshToken', JSON.stringify(response.data.refreshToken))
+        // await localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken))
+        // await localStorage.setItem('refreshToken', JSON.stringify(response.data.refreshToken))
+        handleLogin(response.data.accessToken, response.data.refreshToken);
 
         toast(response.message, {
           type: "success",
