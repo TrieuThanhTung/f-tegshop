@@ -8,10 +8,10 @@ import Cart from '../pages/Cart';
 import Profile from '../pages/Profile';
 
 const publicRoutes = [
+  {path: '/', component: Home},
   {path: '/signup', component: Signup},
   {path: '/login', component: Login},
   {path: '/verify-register', component: ConfirmRegistration},
-  {path: '/', component: Home},
   {path: '/product', component: Product},
   {path: '/category/:category', component: Category},
   {path: '/cart', component: Cart},

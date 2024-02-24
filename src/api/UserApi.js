@@ -2,7 +2,7 @@
 import axiosInstance from "../config/axios";
 
 class UserApi {
-  token = JSON.parse(localStorage.getItem('refreshToken'));
+  token = JSON.parse(localStorage.getItem('accessToken'));
 
   getUserProfile = async () => {
     const url = '/api/user/profile';
