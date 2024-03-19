@@ -18,7 +18,14 @@ const Profile = () => {
           </table>
         </div>
         <div className={cx("avatar")}>
-          <h1>avatar</h1>
+          <img className={cx("image")} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYxfiU_TBh7Q18kI7CUAlhDVAEhARbm5gLNg&usqp=CAU" alt="avatar" />
+          <div className={cx("input-image")}>
+            <label className={cx("custom-input-image")}>
+              Chose image
+              <input type="file" accept='image/*' />
+            </label>
+          </div>
+          <p>1MB .JPEG, .PNG </p>
         </div>
       </div>
     </div>

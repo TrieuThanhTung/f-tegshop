@@ -3,7 +3,8 @@
 }
 
 .header-profile {
-
+  border-bottom: 1px solid #e1e3e6;
+  margin-bottom: 2rem;
 }
 
 .container {
@@ -15,5 +16,35 @@
 }
 
 .avatar {
-  width: 400px;
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 1px solid #e1e3e6;
+
+  .image {
+    width: 33.33%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+  }
+
+  .custom-input-image {
+    padding: 0.5rem;
+    border: 1px solid #000;
+    margin-bottom: 1rem;
+  }
+
+  .custom-input-image:hover {
+    cursor: pointer;
+    background-color: #e1e3e6;
+  }
+
+  .input-image {
+    position: relative;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
 }
