@@ -7,7 +7,6 @@ import classNames from "classnames/bind";
 import CardCategory from "../../components/CardCategory";
 import CardProduct from "../../components/CardProduct";
 import ProductApi from "../../api/ProductApi";
-import UserApi from "../../api/UserApi";
 
 const cx = classNames.bind(styles);
 
@@ -19,9 +18,6 @@ const Home = () => {
       try {
         const response = await ProductApi.getTrendingProduct();
         setListProducts(response.data)
-
-        const resTest = await UserApi.getUserProfile();
-        console.log("get profile: ", resTest?.data);
       } catch (error) {
         console.log(error);
       }

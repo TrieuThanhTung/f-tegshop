@@ -1,13 +1,37 @@
 /* eslint-disable no-unused-vars */
 import styles from './Profile.module.scss';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
+import UserApi from '../../api/UserApi';
 
 const cx = classNames.bind(styles);
 
 const Profile = () => {
+  const [user, setUser] = useState({
+    firstName: 'First name',
+    lastName: 'Last name',
+    email: 'email@email.com',
+    birthDay: '2003-04-26'
+  })
+
+  useEffect(() => {
+    const getData = async () => {
+      const response = await UserApi.getUserProfile();
+      console.log('Get response user: ', response);
+      setUser({ ...user,
+        firstName: response.data?.firstName,
+        lastName: response.data?.lastName,
+        email: response.data?.emailId
+      });
+    } 
+
+    getData();
+  }, [])
+
+  console.log(user)
+
   return (
     <div className={cx('wrapper')}>
       <header className={cx('header-profile')}>
@@ -20,20 +44,20 @@ const Profile = () => {
             <tr>
               <td>First Name</td>
               <td>
-                <input type="text" value={'first name'}/>
+                <input type="text" value={user.firstName}/>
               </td>
             </tr>
             <tr>
             <td>Last Name</td>
               <td>
-                <input type="text" value={'Last name'}/>
+                <input type="text" value={user.lastName}/>
               </td>
             </tr>
             <tr>
               <td>Email</td>
               <td className={cx("change-email")}>
                 <p style={{paddingRight: '0.5rem'}}>
-                  tung.ttrieu@gmail.com
+                  {user.email?.substring(0, 2) + '******@gmail.com'}
                 </p>
                 <Link to={"/change-email"} style={{textDecoration: 'underline'}}>Change</Link>
               </td>
@@ -50,7 +74,7 @@ const Profile = () => {
             <tr>
               <td>Birthday</td>
               <td>
-                <input type="date" />
+                <input type="date" value={user.birthDay}/>
               </td>
             </tr>
             <tr>
