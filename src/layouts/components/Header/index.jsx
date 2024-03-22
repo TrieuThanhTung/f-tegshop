@@ -1,6 +1,7 @@
 // import React from 'react'
 import styles from "./Header.module.scss";
 import classNames from "classnames/bind";
+// import { useState } from "react";
 import { Input, Button } from 'antd';
 import { GoPerson } from "react-icons/go";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -14,6 +15,8 @@ const { Search } = Input;
 const Header = () => {
 
   const onSearch = (value, _e, info) => console.log(info?.source, value);
+
+  // const [hiddenPopDown, sethiddenPopDown] = useState(true);
 
   return (
     <header className={cx("wrapper")}>
@@ -32,13 +35,32 @@ const Header = () => {
         size="large"
       />
       <div className={cx("menu")}>
-        <Link to={"/profile"}>
-          <Button size="large"
-            color="grey"
-            shape="circle"
-            icon={<GoPerson size={24} className="profile-icon" />}
-          />
-        </Link>
+        <div className={cx("profile")}>
+          <Link to={"/profile"}>
+            <Button size="large"
+              color="grey"
+              shape="circle"
+              icon={<GoPerson size={24} className="profile-icon" />}
+            />
+          </Link>
+          <div className={cx("pop-down")} >
+            <Link to={'/profile'}>
+              <Button type="primary" size="large"
+                color="grey"
+                className={cx("button")}
+              >
+                Profile
+              </Button>
+            </Link>
+            <Link to={'/login'}>
+              <Button danger size="large"
+                className={cx("button")}
+              >
+                Log out
+              </Button>
+            </Link>
+          </div>
+        </div>
         <Link to={"/cart"}>
           <Button size="large"
             color="grey"

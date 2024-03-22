@@ -26,6 +26,46 @@
   }
 }
 
+.profile {
+  position: relative;
+
+  .pop-down {
+    display: none;
+    width: 200px;
+    position: absolute;
+    top: 48px;
+    right: -10px;
+    border-radius: 10px;
+    padding: 0.5rem 0.5rem 0rem 0.5rem;
+    box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
+  }
+
+  .pop-down::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: 0;
+    background-color: transparent;
+    width: 8rem;
+    height: 2rem;
+
+  }
+
+  .button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .button:hover .pop-down {
+    display: none;
+  }
+  
+}
+
+.profile:hover .pop-down {
+   display: block;
+}
+
 .menu-icon {
   border-radius: 50%;
   background-color: #eef1f3;
